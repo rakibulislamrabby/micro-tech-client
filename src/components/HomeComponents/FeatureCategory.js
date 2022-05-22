@@ -23,7 +23,7 @@ const FeatureCategory = () => {
     return (
         <div className='px-12 pb-16 mt-16'>
             <div className='mb-6'>
-                <h2 className='text-2xl text-primary text-center font-bold'>Featured Category</h2>
+                <h2 className='text-3xl text-primary text-center font-bold'>Featured Category</h2>
                 <h2 className='text-xl  text-center '>Get Your Desired Product from Featured Category!</h2>
             </div>
             <div className='grid grid-cols-2 lg:grid-cols-4 gap-5'>
