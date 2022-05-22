@@ -22,7 +22,7 @@ const Navbar = () => {
                         <li><NavLink className="rounded-lg" to="/blog">Blogs</NavLink></li>
                         <li><NavLink className="rounded-lg" to="/myPortfolio">My Portfolio</NavLink></li>
                         {
-                            user ? <button onClick={logout} className="btn btn-ghost mr-10">Sign Up</button> : <Link className="rounded-lg" to="/login">Login</Link>
+                            user ? <button onClick={logout} className="btn btn-ghost mr-10">Sign Out</button> : <Link className="rounded-lg" to="/login">Login</Link>
                         }
                     </ul>
 
@@ -37,7 +37,7 @@ const Navbar = () => {
 
                     <li>
                         {
-                            user ? <button onClick={logout} className="btn btn-ghost  rounded-lg ">Sign Up</button> : <NavLink className="rounded-lg" to="/login">Login</NavLink>
+                            user ? <button onClick={logout} className="btn btn-ghost  rounded-lg ">Sign Out</button> : <NavLink className="rounded-lg" to="/login">Login</NavLink>
                         }
                     </li>
                 </ul>

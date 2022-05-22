@@ -1,7 +1,10 @@
 import React from 'react';
 import Banner from '../components/HomeComponents/Banner';
+import ExtraPart1 from '../components/HomeComponents/ExtraPart1';
+import ExtraPart2 from '../components/HomeComponents/ExtraPart2';
 import FeatureCategory from '../components/HomeComponents/FeatureCategory';
 import Parts from '../components/HomeComponents/Parts';
+import Footer from '../components/Shared/Footer';
 
 const Home = () => {
     return (
@@ -9,7 +12,9 @@ const Home = () => {
             <Banner></Banner>
             <FeatureCategory></FeatureCategory>
             <Parts></Parts>
-
+            <ExtraPart1></ExtraPart1>
+            <ExtraPart2></ExtraPart2>
+            <Footer></Footer>
         </div>
     );
 };
