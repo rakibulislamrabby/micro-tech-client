@@ -3,8 +3,8 @@
     "_id": 1,
     "name": "Deepcool UD551 CPU Air Cooler",
     "price":1500,
-    "availableQuantity":50,
-    "minimumQuantity":50,
+    "availableQuantity":550,
+    "minimumQuantity":12,
     "description":"Fan Speed 500~1800 RPM±10%, Top Flow DesGlamourous Ring Light. LED Type Addressable RGB LEDApplication For AMD AM4 only",
     "img":"https://www.startech.com.bd/image/cache/catalog/cpu-cooler/deepcool/ud551/ud551-01-228x228.jpg"
     
@@ -14,7 +14,7 @@
     "name": "Redragon RGPS GC-PS002 Power Supply",
     "price":3500,
     "availableQuantity":1000,
-    "minimumQuantity":10,
+    "minimumQuantity":8,
     "description":"Fan Speed 500~1800 RPM±10%, Top Flow DesGlamourous Ring Light. LED Type Addressable RGB LEDApplication For AMD AM4 only",
     "img":"https://www.startech.com.bd/image/cache/catalog/cpu-cooler/redragon/GC-PS002/redragon-gc-ps002-80-plus-bronze-power-supply-03-500x500.jpg"
     
@@ -24,7 +24,7 @@
     "name": "AMD Ryzen 5 1600X Processor",
     "price":15000,
     "availableQuantity":500,
-    "minimumQuantity":10,
+    "minimumQuantity":4,
     "description":"Model: Ryzen 5 1600X, Speed: 3.6GHz up to 4.0GHz, L1 Cache: 576KB, L2 Cache: 3MB, L3 Cache: 16MB, Cores: 6, Threads: 12, Up to 2667MHz DDR4",
     "img":"https://www.startech.com.bd/image/cache/catalog/processor/amd/ryzen-5-1600x/amd-ryzen-5-1600x-processor-02-500x500.jpg"
     
@@ -33,8 +33,8 @@
     "_id": 4,
     "name": "Transcend StoreJet 25M3 4TB USB 3.1 Portable Hard Disk",
    "price":10999,
-    "availableQuantity":30,
-    "minimumQuantity":10,
+    "availableQuantity":890,
+    "minimumQuantity":5,
     "description":"MPN: TS4TSJ25M3S, Model: J25M3S, Capacity- 4000 GB, Connectivity- USB 3.1 Gen 1, Op. Voltage- USB DC 5V, Form Factor- 2.5-inch SATA",
     "img":"https://www.startech.com.bd/image/cache/catalog/HDD/Transcend%20J25M3%201TB-500x500.jpg"
     
@@ -43,7 +43,7 @@
     "_id": 5,
     "name": "Belkin USB Type-C Hub",
     "price":7000,
-    "availableQuantity":50,
+    "availableQuantity":1550,
     "minimumQuantity":5,
     "description":"Fan Speed 500~1800 RPM±10%, Top Flow DesGlamourous Ring Light. LED Type Addressable RGB LEDApplication For AMD AM4 only",
     "img":"https://www.startech.com.bd/image/cache/catalog/hub/belkin/f4u092btsgy/f4u092btsgy-01-500x500.jpeg "
@@ -53,8 +53,8 @@
     "_id": 6,
     "name": "Kingston 500GB NVMe SE 2280 PCIe SSD",
     "price":3000,
-    "availableQuantity":150,
-    "minimumQuantity":10,
+    "availableQuantity":1500,
+    "minimumQuantity":6,
     "description":"MPN: SNVS/500G, Model: 500GB NVMe SE 2280 PCIe SSD, NVMe PCIe Performance SSD, Up to 2,100 MB/s Read Speed, Up to 1,700 MB/s Write Speed, Faster than a SATA-based SSD",
     "img":"https://www.startech.com.bd/image/cache/catalog/ssd/kingston/kingston-500gb-nvme-se-2280-pcie-ssd/kingston-500gb-nvme-se-2280-pcie-ssd-01-228x228.jpg"
     
