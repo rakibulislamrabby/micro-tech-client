@@ -8,7 +8,7 @@ const Navbar = () => {
     const [user] = useAuthState(auth);
     const logout = () => {
         signOut(auth);
-        // localStorage.removeItem("accessToken")
+        localStorage.removeItem("accessToken")
     };
     return (
         <div className="navbar bg-base-100 ">
@@ -22,6 +22,9 @@ const Navbar = () => {
                         <li><NavLink className="rounded-lg" to="/blog">Blogs</NavLink></li>
                         <li><NavLink className="rounded-lg" to="/myPortfolio">My Portfolio</NavLink></li>
                         {
+                            user && <li><NavLink className="rounded-lg" to="/dashboard">Dashboard</NavLink></li>
+                        }
+                        {
                             user ? <button onClick={logout} className="btn btn-ghost mr-10">Sign Out</button> : <Link className="rounded-lg" to="/login">Login</Link>
                         }
                     </ul>
@@ -34,7 +37,9 @@ const Navbar = () => {
                     <li><NavLink className="rounded-lg mx-4" to="/">Home</NavLink></li>
                     <li><NavLink className="rounded-lg" to="/blog">Blogs</NavLink></li>
                     <li><NavLink className="rounded-lg" to="/myPortfolio">My Portfolio</NavLink></li>
-
+                    {
+                        user && <li><NavLink className="rounded-lg" to="/dashboard">Dashboard</NavLink></li>
+                    }
                     <li>
                         {
                             user ? <button onClick={logout} className="btn btn-ghost  rounded-lg ">Sign Out</button> : <NavLink className="rounded-lg" to="/login">Login</NavLink>
@@ -50,12 +55,12 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-            {/* <div className="navbar-end lg:hidden">
-                <label htmlFor="my-drawer-2" tabIndex="1" className="btn btn-ghost lg:hidden">
+            <div className="navbar-end lg:hidden">
+                <label htmlFor="dashboard-sidebar" tabIndex="1" className="btn btn-ghost lg:hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                 </label>
 
-            </div> */}
+            </div>
         </div>
     );
 };

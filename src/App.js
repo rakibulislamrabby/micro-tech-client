@@ -2,11 +2,15 @@ import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
+import AddReview from './components/Dashboard/AddReview';
+import MyOrders from './components/Dashboard/MyOrders';
+import MyProfile from './components/Dashboard/MyProfile';
 import Navbar from './components/HomeComponents/Navbar';
 import NotFound from './components/Shared/NotFound';
 import Login from './pages/Authentication/Login';
 import RequireAuth from './pages/Authentication/RequireAuth';
 import SignUp from './pages/Authentication/SignUp';
+import Dashboard from './pages/Dashboard';
 import Home from './pages/Home';
 import MyPortfolio from './pages/MyPortfolio';
 import Purchase from './pages/Purchase';
@@ -25,6 +29,15 @@ function App() {
             <Purchase></Purchase>
           </RequireAuth>
         }></Route>
+        <Route path='/dashboard' element={
+          <RequireAuth>
+            <Dashboard></Dashboard>
+          </RequireAuth>
+        }>
+          <Route index element={<MyOrders></MyOrders>} ></Route>
+          <Route path='review' element={<AddReview></AddReview>} ></Route>
+          <Route path='myProfile' element={<MyProfile></MyProfile>} ></Route>
+        </Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <ToastContainer />

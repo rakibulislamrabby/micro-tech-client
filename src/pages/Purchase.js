@@ -15,8 +15,11 @@ const Purchase = () => {
             .then(data => setProduct(data));
     }, []);
     const { _id, name, img, description, price, availableQuantity, minimumQuantity } = product
-    const [quantity, setquantity] = useState(minimumQuantity);
+
+    const [quantity, setquantity] = useState(0);
+    // setquantity(Number(minimumQuantity))
     let incNum = () => {
+
         if (quantity < availableQuantity) {
             setquantity(Number(quantity) + 1);
         }
@@ -25,6 +28,7 @@ const Purchase = () => {
         }
     };
     let decNum = () => {
+
         if (quantity > minimumQuantity) {
             setquantity(quantity - 1);
         }
@@ -33,6 +37,7 @@ const Purchase = () => {
         }
     }
     let handleChange = (e) => {
+
         setquantity(e.target.value);
     }
     const handleOrders = event => {
@@ -40,9 +45,10 @@ const Purchase = () => {
         const order = {
             orderId: _id,
             product: name,
-            price: price * quantity,
+            price: price,
+            TotallPrice: price * quantity,
             quantity,
-            patient: user.email,
+            buyer: user.email,
             userName: user.displayName,
             phone: event.target.phone.value,
             address: event.target.address.value
