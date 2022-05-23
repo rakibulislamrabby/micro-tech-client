@@ -2,10 +2,12 @@ import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
+import AddProduct from './components/Dashboard/AddProduct';
 import AddReview from './components/Dashboard/AddReview';
 import MakeAdmin from './components/Dashboard/MakeAdmin';
 import MyOrders from './components/Dashboard/MyOrders';
 import MyProfile from './components/Dashboard/MyProfile';
+import Blogs from './components/HomeComponents/Blogs';
 import Navbar from './components/HomeComponents/Navbar';
 import NotFound from './components/Shared/NotFound';
 import Login from './pages/Authentication/Login';
@@ -39,8 +41,10 @@ function App() {
           <Route index element={<MyOrders></MyOrders>} ></Route>
           <Route path='review' element={<AddReview></AddReview>} ></Route>
           <Route path='myProfile' element={<MyProfile></MyProfile>} ></Route>
+          <Route path='addProduct' element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>} ></Route>
           <Route path='makeAdmin' element={<RequireAdmin><MakeAdmin></MakeAdmin></RequireAdmin>} ></Route>
         </Route>
+        <Route path='blogs' element={<Blogs></Blogs>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <ToastContainer />

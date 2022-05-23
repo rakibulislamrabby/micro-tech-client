@@ -35,7 +35,7 @@ const Navbar = () => {
             <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal  ">
                     <li><NavLink className="rounded-lg mx-4" to="/">Home</NavLink></li>
-                    <li><NavLink className="rounded-lg" to="/blog">Blogs</NavLink></li>
+                    <li><NavLink className="rounded-lg" to="/blogs">Blogs</NavLink></li>
                     <li><NavLink className="rounded-lg" to="/myPortfolio">My Portfolio</NavLink></li>
                     {
                         user && <li><NavLink className="rounded-lg" to="/dashboard">Dashboard</NavLink></li>
