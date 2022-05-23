@@ -16,7 +16,7 @@ const Purchase = () => {
     }, []);
     const { _id, name, img, description, price, availableQuantity, minimumQuantity } = product
 
-    const [quantity, setquantity] = useState(0);
+    const [quantity, setquantity] = useState(2);
     // setquantity(Number(minimumQuantity))
     let incNum = () => {
 
