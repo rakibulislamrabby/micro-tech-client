@@ -9,7 +9,7 @@ const Purchase = () => {
     const { productId } = useParams()
     const [product, setProduct] = useState([]);
     useEffect(() => {
-        const url = `http://localhost:5000/product/${productId}`;
+        const url = `https://gentle-ocean-30847.herokuapp.com/product/${productId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setProduct(data));
@@ -53,7 +53,7 @@ const Purchase = () => {
             phone: event.target.phone.value,
             address: event.target.address.value
         }
-        fetch("http://localhost:5000/order", {
+        fetch("https://gentle-ocean-30847.herokuapp.com/order", {
             method: "POST",
             headers: {
                 "content-type": "application/json   "

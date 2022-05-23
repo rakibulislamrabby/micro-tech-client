@@ -9,7 +9,7 @@ const MyOrders = () => {
     const [orders, setOrder] = useState([]);
     const navigate = useNavigate();
     useEffect(() => {
-        fetch(`http://localhost:5000/order?buyer=${user.email}`, {
+        fetch(`https://gentle-ocean-30847.herokuapp.com/order?buyer=${user.email}`, {
             method: "GET",
             headers: {
                 "authorization": `Bearer ${localStorage.getItem("accessToken")}`
