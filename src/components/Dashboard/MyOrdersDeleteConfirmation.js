@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 const MyOrdersDeleteConfirmation = ({ removeOrders, setRemoveOrders, refetch }) => {
     const { _id } = removeOrders;
     const handleDelete = id => {
-        fetch(`http://localhost:5000/order/${id}`, {
+        fetch(`https://gentle-ocean-30847.herokuapp.com/order/${id}`, {
             method: "DELETE",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`

@@ -5,7 +5,7 @@ const DeleteConfirmation = ({ removeProduct, refetch, setRemoveProduct }) => {
     const { _id, name } = removeProduct;
 
     const handleDelete = id => {
-        fetch(`http://localhost:5000/manageproduct/${id}`, {
+        fetch(`https://gentle-ocean-30847.herokuapp.com/manageproduct/${id}`, {
             method: "DELETE",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`

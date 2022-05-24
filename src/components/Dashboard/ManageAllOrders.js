@@ -4,7 +4,7 @@ import Loading from '../Shared/Loading';
 import ManageAllOrdersRow from './ManageAllOrdersRow';
 
 const ManageAllOrders = () => {
-    const { data: orders, isLoading, refetch } = useQuery('products', () => fetch('http://localhost:5000/allOrder', {
+    const { data: orders, isLoading, refetch } = useQuery('products', () => fetch('https://gentle-ocean-30847.herokuapp.com/allOrder', {
         headers: {
             authorization: `Bearer ${localStorage.getItem("accessToken")}`
         }

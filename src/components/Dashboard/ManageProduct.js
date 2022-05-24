@@ -6,7 +6,7 @@ import ManageProductRow from './ManageProductRow';
 
 const ManageProduct = () => {
     const [removeProduct, setRemoveProduct] = useState(null)
-    const { data: products, isLoading, refetch } = useQuery('products', () => fetch('http://localhost:5000/manageproduct', {
+    const { data: products, isLoading, refetch } = useQuery('products', () => fetch('https://gentle-ocean-30847.herokuapp.com/manageproduct', {
         headers: {
             authorization: `Bearer ${localStorage.getItem("accessToken")}`
         }
