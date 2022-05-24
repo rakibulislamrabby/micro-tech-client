@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MyOrdersRow = ({ order, index, }) => {
+const MyOrdersRow = ({ order, index, setRemoveOrders }) => {
     return (
         <tr>
             <th>{index + 1}</th>
@@ -8,7 +8,7 @@ const MyOrdersRow = ({ order, index, }) => {
             <td>{order.price}</td>
             <td>{order.TotallPrice}</td>
             <td>{order.quantity}</td>
-            <td><button class="btn btn-xs">Cencel order</button></td>
+            <td><label onClick={() => setRemoveOrders(order)} for="order-cencel-modal" class="btn btn-xs btn-error">Cencel Order</label></td>
         </tr>
     );
 };
