@@ -9,6 +9,7 @@ import ManageAllOrders from './components/Dashboard/ManageAllOrders';
 import ManageProduct from './components/Dashboard/ManageProduct';
 import MyOrders from './components/Dashboard/MyOrders';
 import MyProfile from './components/Dashboard/MyProfile';
+import Payment from './components/Dashboard/Payment';
 import Blogs from './components/HomeComponents/Blogs';
 import Navbar from './components/HomeComponents/Navbar';
 import NotFound from './components/Shared/NotFound';
@@ -43,6 +44,7 @@ function App() {
           <Route index element={<MyOrders></MyOrders>} ></Route>
           <Route path='review' element={<AddReview></AddReview>} ></Route>
           <Route path='myProfile' element={<MyProfile></MyProfile>} ></Route>
+          <Route path='payment/:id' element={<Payment></Payment>} ></Route>
           <Route path='addProduct' element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>} ></Route>
           <Route path='manageProduct' element={<RequireAdmin><ManageProduct></ManageProduct></RequireAdmin>} ></Route>
           <Route path='manageOrder' element={<RequireAdmin><ManageAllOrders></ManageAllOrders></RequireAdmin>} ></Route>

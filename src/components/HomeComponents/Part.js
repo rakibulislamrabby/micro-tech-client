@@ -13,7 +13,7 @@ const Part = ({ part }) => {
             <div class="card-body">
                 <h2 class="card-title text-bold text-primary">{name}</h2>
                 <p>{description}</p>
-                <p>Price: {price}</p>
+                <p>Price: ৳ {price} Per Unit</p>
                 <p>AvailableQuantity: {availableQuantity}</p>
                 <p>Minimum Order: {minimumQuantity}</p>
                 <div class="card-actions justify-end">
