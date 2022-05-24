@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../Shared/Loading';
+import DeleteConfirmation from './DeleteConfirmation';
 import ManageProductRow from './ManageProductRow';
 
 const ManageProduct = () => {
+    const [removeProduct, setRemoveProduct] = useState(null)
     const { data: products, isLoading, refetch } = useQuery('products', () => fetch('http://localhost:5000/manageproduct', {
         headers: {
             authorization: `Bearer ${localStorage.getItem("accessToken")}`
@@ -37,12 +39,20 @@ const ManageProduct = () => {
                                 product={product}
                                 index={index}
                                 refetch={refetch}
+                                setRemoveProduct={setRemoveProduct}
                             ></ManageProductRow>)
                         }
 
                     </tbody>
                 </table>
             </div>
+            {
+                removeProduct && <DeleteConfirmation
+                    removeProduct={removeProduct}
+                    refetch={refetch}
+                    setRemoveProduct={setRemoveProduct}
+                ></DeleteConfirmation>
+            }
         </div>
     );
 };
