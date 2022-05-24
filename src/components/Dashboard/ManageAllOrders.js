@@ -1,41 +1,42 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../Shared/Loading';
-import AdminRow from './AdminRow';
+import ManageAllOrdersRow from './ManageAllOrdersRow';
 
-const MakeAdmin = () => {
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://gentle-ocean-30847.herokuapp.com/user', {
-        method: "GET",
+const ManageAllOrders = () => {
+    const { data: orders, isLoading, refetch } = useQuery('products', () => fetch('http://localhost:5000/allOrder', {
         headers: {
             authorization: `Bearer ${localStorage.getItem("accessToken")}`
         }
-    }).then(res => res.json()))
+    }).then(res => res.json()));
     if (isLoading) {
         return <Loading></Loading>
     }
     return (
-        <div className='pt-4'>
+        <div>
+            <h2>All Products {orders.length}</h2>
             <div class="overflow-auto">
                 <table class="table w-full">
                     {/* <!-- head --> */}
                     <thead>
                         <tr>
                             <th>SI</th>
-                            <th>Email</th>
-                            <th>Price per pis</th>
-                            <th>Totall Price</th>
+                            <th>Buyer Name</th>
+                            <th>Buyer E-Mail</th>
                             <th>Quantity</th>
+                            <th>Totall Price</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
 
                         {
-                            users.map((users, index) => <AdminRow
-                                key={users._id}
-                                users={users}
+                            orders.map((order, index) => <ManageAllOrdersRow
+                                key={order._id}
+                                order={order}
                                 index={index}
                                 refetch={refetch}
-                            ></AdminRow>)
+                            ></ManageAllOrdersRow>)
                         }
 
                     </tbody>
@@ -45,4 +46,4 @@ const MakeAdmin = () => {
     );
 };
 
-export default MakeAdmin;
+export default ManageAllOrders;

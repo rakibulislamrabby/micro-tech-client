@@ -100,8 +100,8 @@ const MyPortfolio = () => {
                     </ul>
                     <h3 className='text-2xl text-accent'>DataBase</h3>
                     <ul>
-                        <li>Node JS</li>
-                        <li>Express JS</li>
+                        <li>MongoDB</li>
+
                     </ul>
                     <h3 className='text-2xl text-accent'>Authentication</h3>
                     <ul>

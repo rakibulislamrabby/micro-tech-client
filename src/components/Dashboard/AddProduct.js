@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
 const AddProduct = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
@@ -27,8 +28,28 @@ const AddProduct = () => {
                         description: data.description,
                         img: img
                     }
+                    //send database
+                    fetch("http://localhost:5000/product", {
+                        method: "POST",
+                        headers: {
+                            "content-type": "application/json",
+                            authorization: `Bearer ${localStorage.getItem("accessToken")}`
+                        },
+                        body: JSON.stringify(product)
+                    })
+                        .then(res => res.json())
+                        .then(inserted => {
+                            if (inserted.insertedId) {
+                                toast.success("Added Successfull");
+                                reset();
+                            }
+                            else {
+                                toast.error("Failed to add product");
+                            }
+
+                        })
                 }
-                console.log("imgbb", result);
+                // console.log("imgbb", result);
             })
     }
     return (

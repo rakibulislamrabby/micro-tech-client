@@ -5,6 +5,8 @@ import './App.css';
 import AddProduct from './components/Dashboard/AddProduct';
 import AddReview from './components/Dashboard/AddReview';
 import MakeAdmin from './components/Dashboard/MakeAdmin';
+import ManageAllOrders from './components/Dashboard/ManageAllOrders';
+import ManageProduct from './components/Dashboard/ManageProduct';
 import MyOrders from './components/Dashboard/MyOrders';
 import MyProfile from './components/Dashboard/MyProfile';
 import Blogs from './components/HomeComponents/Blogs';
@@ -42,6 +44,8 @@ function App() {
           <Route path='review' element={<AddReview></AddReview>} ></Route>
           <Route path='myProfile' element={<MyProfile></MyProfile>} ></Route>
           <Route path='addProduct' element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>} ></Route>
+          <Route path='manageProduct' element={<RequireAdmin><ManageProduct></ManageProduct></RequireAdmin>} ></Route>
+          <Route path='manageOrder' element={<RequireAdmin><ManageAllOrders></ManageAllOrders></RequireAdmin>} ></Route>
           <Route path='makeAdmin' element={<RequireAdmin><MakeAdmin></MakeAdmin></RequireAdmin>} ></Route>
         </Route>
         <Route path='blogs' element={<Blogs></Blogs>}></Route>
