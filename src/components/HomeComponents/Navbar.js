@@ -10,6 +10,7 @@ const Navbar = () => {
         signOut(auth);
         localStorage.removeItem("accessToken")
     };
+    console.log(user);
     return (
         <div className="navbar bg-base-100 ">
             <div className="navbar-start">
@@ -50,7 +51,7 @@ const Navbar = () => {
                     <div className="w-10 rounded-full ml-2 ">
 
                         {
-                            user?.photoURL ? <img src={user?.photoURL} /> : <img src="https://api.lorem.space/image/face?hash=92048" />
+                            user?.photoURL ? <img src={user?.photoURL} alt="img" /> : <img src="https://api.lorem.space/image/face?hash=92048" />
                         }
                     </div>
                 </div>
