@@ -22,7 +22,7 @@ const Dashboard = () => {
                     {
                         admin || <>
                             <li className='my-2'><Link to="/dashboard">My orders</Link></li>
-                            <li><Link to="/dashboard/review">Add Review</Link></li>
+                            <li><Link to="/dashboard/addReview">Add Review</Link></li>
                         </>
                     }
                     <li><Link to="/dashboard/myProfile">My Profile</Link></li>

@@ -20,7 +20,7 @@ const Navbar = () => {
                     </label>
                     <ul tabIndex="0" className="menu menu-compact dropdown-content lg:hidden mt-6 my-6 pr-6 shadow bg-base-100 rounded-box w-52">
                         <li><NavLink className="rounded-lg" to="/">Home</NavLink></li>
-                        <li><NavLink className="rounded-lg" to="/blog">Blogs</NavLink></li>
+                        <li><NavLink className="rounded-lg" to="/blogs">Blogs</NavLink></li>
                         <li><NavLink className="rounded-lg" to="/myPortfolio">My Portfolio</NavLink></li>
                         {
                             user && <li><NavLink className="rounded-lg" to="/dashboard">Dashboard</NavLink></li>

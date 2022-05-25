@@ -50,35 +50,6 @@ const MyPortfolio = () => {
             </div>
             <div className='my-6 pl-5 lg:pl-28'>
                 <h2 className='text-2xl font-bold text-center pb-4 text-secondary'>My Skills as a web developer</h2>
-                {/* 
-                <div class="dropdown dropdown-end">
-                    <label tabindex="0" class="btn btn-primary m-1">Programming Language</label>
-                    <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><a>Javascript</a></li>
-                    </ul>
-                </div>
-                <div class="dropdown dropdown-end">
-                    <label tabindex="0" class="btn btn-primary m-1">Front End Developement</label>
-                    <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><a>HTML</a></li>
-                        <li><a>CSS</a></li>
-                        <li><a>CSS Framework- Bootstrap.</a></li>
-                        <li><a>CSS Framework- Tailwind and Component Library(Daisy UI).</a></li>
-                        <li><a>React JS</a></li>
-                    </ul>
-                </div> */}
-                {/* <div class="dropdown dropdown-end">
-                    <label tabindex="0" class="btn btn-primary m-1">Front End Developement</label>
-                    <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><a>HTML</a></li>
-                        <li><a>CSS</a></li>
-                        <li><a>CSS Framework- Bootstrap.</a></li>
-                        <li><a>CSS Framework- Tailwind and Component Library(Daisy UI).</a></li>
-                        <li><a>React JS</a></li>
-                    </ul>
-                </div> */}
-
-
                 <div>
                     <h3 className='text-2xl text-accent'>Programming Language</h3>
                     <ul>
@@ -110,11 +81,11 @@ const MyPortfolio = () => {
                 </div>
             </div>
 
-            <div>
+            <div className='lg:pl-28'>
                 <h2 className='text-2xl font-bold text-center pb-4 text-secondary'>My Projects</h2>
-                <h3 className='text-xl'>Project Link:</h3>
-                <h3 className='text-xl'>Project Link:</h3>
-                <h3 className='text-xl'>Project Link:</h3>
+                <h3 className='text-xl'><span className='text-success'>Project Link:</span> https://khushboo-faacc.web.app/</h3>
+                <h3 className='text-xl'><span className='text-success'>Project Link:</span> https://cheerful-rugelach-f4f287.netlify.app/</h3>
+                <h3 className='text-xl'><span className='text-success'>Project Link:</span> https://funny-muffin-99262c.netlify.app/</h3>
 
             </div>
 
