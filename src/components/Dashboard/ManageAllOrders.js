@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../Shared/Loading';
 import ManageAllOrdersRow from './ManageAllOrdersRow';
+import MyOrdersDeleteConfirmation from './MyOrdersDeleteConfirmation';
 
 const ManageAllOrders = () => {
-    const { data: orders, isLoading, refetch } = useQuery('products', () => fetch('https://gentle-ocean-30847.herokuapp.com/allOrder', {
+    const [removeorders, setRemoveOrders] = useState(null)
+    const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch('https://gentle-ocean-30847.herokuapp.com/allOrder', {
         headers: {
             authorization: `Bearer ${localStorage.getItem("accessToken")}`
         }
@@ -14,7 +16,7 @@ const ManageAllOrders = () => {
     }
     return (
         <div>
-            <h2>All Products {orders.length}</h2>
+            <h2>All Orders {orders.length}</h2>
             <div class="overflow-auto">
                 <table class="table w-full">
                     {/* <!-- head --> */}

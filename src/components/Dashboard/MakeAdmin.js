@@ -22,9 +22,9 @@ const MakeAdmin = () => {
                         <tr>
                             <th>SI</th>
                             <th>Email</th>
-                            <th>Price per pis</th>
-                            <th>Totall Price</th>
-                            <th>Quantity</th>
+                            <th>Make Admin</th>
+                            <th>Remove User</th>
+
                         </tr>
                     </thead>
                     <tbody>

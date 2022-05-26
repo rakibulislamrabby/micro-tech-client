@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ManageAllOrdersRow = ({ order, index, refetch }) => {
+const ManageAllOrdersRow = ({ order, index, refetch, setRemoveOrders }) => {
     const { userName, buyer, quantity, TotallPrice } = order;
     return (
         <tr>
@@ -9,7 +9,7 @@ const ManageAllOrdersRow = ({ order, index, refetch }) => {
             <td>{buyer}</td>
             <td>{quantity}</td>
             <td>{TotallPrice}</td>
-            <td><button class="btn btn-xs">Remove Product</button></td>
+            <td><label onClick={() => setRemoveOrders(order)} for="order-cencel-modal" class="btn btn-xs btn-error">Cencel Order</label></td>
         </tr>)
 
 };
