@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
@@ -6,34 +6,46 @@ import auth from '../../firebase_init';
 
 const MyProfile = () => {
     const [user, loading] = useAuthState(auth);
+    const email = user.email;
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
-    // const [userInfo, setUserInfo] = useLoadingUserInfo(user?.email);
+    const [userInfo, setUserInfo] = useState([]);
+    if (loading) {
+        return <loading></loading>
+    }
+    fetch(`https://gentle-ocean-30847.herokuapp.com/userProfiles/${email}`)
+        .then(res => res.json())
+        .then(data => setUserInfo(data))
+
+
     const onSubmit = (data) => {
-        const email = user.email;
+
         const profile = {
-            email: user.email,
+            email,
             address: data.address,
             education: data.education,
             phone: data.phone,
             linkedin: data.linkedin,
         };
         console.log(profile);
-        fetch(`https://gentle-ocean-30847.herokuapp.com/user/profile/${email}`, {
-            method: "PUT",
+        fetch("https://gentle-ocean-30847.herokuapp.com/userProfiles", {
+            method: "POST",
             headers: {
-                headers: {
-                    authorization: `Bearer ${localStorage.getItem("accessToken")}`
-                }
+                "content-type": "application/json",
+                authorization: `Bearer ${localStorage.getItem("accessToken")}`
             },
-            body: JSON.stringify(profile),
+            body: JSON.stringify(profile)
         })
-            .then((response) => response.json())
-            .then((data) => {
-                if (data.modifiedCount > 0) {
-
-                    toast.success(` is Successfully Updated`)
+            .then(res => res.json())
+            .then(inserted => {
+                console.log(inserted);
+                if (inserted.insertedId) {
+                    toast.success("Added Successfull");
+                    reset();
                 }
-            });
+
+
+            })
+
     }
     return (
         <div className="container">
@@ -60,21 +72,21 @@ const MyProfile = () => {
                             <td>
                                 <strong>Address: </strong>
                             </td>
-                            {/* <td>{userInfo?.address}</td> */}
+                            <td>{userInfo?.address}</td>
                         </tr>
                         {/* education*/}
                         <tr className="active">
                             <td>
                                 <strong>Education: </strong>
                             </td>
-                            {/* <td>{userInfo?.education}</td> */}
+                            <td>{userInfo?.education}</td>
                         </tr>
                         {/* phone*/}
                         <tr>
                             <td>
                                 <strong>Phone: </strong>
                             </td>
-                            {/* <td>{userInfo?.phone}</td> */}
+                            <td>{userInfo?.phone}</td>
                         </tr>
                         {/* linkedin*/}
                         <tr className="active">
@@ -82,13 +94,13 @@ const MyProfile = () => {
                                 <strong>Linkedin Profile: </strong>
                             </td>
                             <td>
-                                {/* <a
+                                <a
                                     href={userInfo?.linkedin}
                                     target="_blank"
                                     className="text-blue-700 text-sm underline"
                                 >
                                     {userInfo?.linkedin}
-                                </a> */}
+                                </a>
                             </td>
                         </tr>
                     </tbody>
@@ -173,7 +185,7 @@ const MyProfile = () => {
                             },
 
                         })}
-                        type="link" placeholder="linkedin-Profile Link"
+                        type="text" placeholder="linkedin-Profile Link"
                         className="input input-bordered input-secondary w-full max-w-xs" />
                     <label className="label">
                         {errors.linkedin?.type === 'required' && <span className="label-text-alt text-red-500">{errors.linkedin.message}</span>}

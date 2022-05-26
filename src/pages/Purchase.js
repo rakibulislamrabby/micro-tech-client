@@ -13,15 +13,17 @@ const Purchase = () => {
         const url = `https://gentle-ocean-30847.herokuapp.com/product/${productId}`;
         fetch(url)
             .then(res => res.json())
-            .then(data => setProduct(data));
-    }, [productId]);
-    // const mNumber = parseInt(minimumQuantity);
-    const [quantity, setquantity] = useState(0);
-    // setquantity(minimumQuantity);
-    // const mNumber = setquantity(minimumQuantity)
-    let incNum = () => {
+            .then(data => {
+                setProduct(data)
+                setquantity(data.minimumQuantity)
+            });
+    }, [productId, minimumQuantity]);
 
+    const [quantity, setquantity] = useState(0);
+
+    let incNum = () => {
         if (quantity < availableQuantity) {
+
             setquantity(quantity + 1);
         }
         else {
@@ -29,7 +31,6 @@ const Purchase = () => {
         }
     };
     let decNum = () => {
-
         if (quantity > minimumQuantity) {
             setquantity(quantity - 1);
         }
@@ -38,7 +39,7 @@ const Purchase = () => {
         }
     }
     let handleChange = (e) => {
-
+        const numbervalue = e.target.value;
         setquantity(e.target.value);
     }
     const handleOrders = event => {
@@ -96,19 +97,6 @@ const Purchase = () => {
                         <input type="text" name='address' placeholder="Your address" className="input input-bordered input-secondary w-full " />
                         <input type="number" name='phone' placeholder="Phone Number" className="input input-bordered input-secondary w-full " />
 
-                        {/* {
-                            parseInt(avail_qty) < parseInt(watch().quantity) || parseInt(min_order) > parseInt(watch().quantity) ?
-                                <input type="submit" value='Order' className='btn btn-primary' disabled /> :
-
-                                <input type="submit" value='Order' className='btn btn-primary' />
-                        }
-                        {
-                            parseInt(avail_qty) < parseInt(watch().quantity) ?
-                                <span className='text-orange-700'>You can not order much than stock</span> :
-                                parseInt(min_order) > parseInt(watch().quantity) ?
-                                    <span className='text-orange-700'>You can not order less than mini order</span> :
-                                    ''
-                        } */}
                         <label class="label">
                             <span class="label-text">Quantity</span>
                         </label>
@@ -116,7 +104,7 @@ const Purchase = () => {
                             <div class="input-group">
                                 <button class="btn btn-outline-primary" type="button" onClick={decNum}>-</button>
                             </div>
-                            <input value={quantity} onChange={handleChange} type="number" placeholder="Quantity" class="input  w-full max-w-xs" />
+                            <input value={quantity} name="quantity" onChange={handleChange} type="number" placeholder="Quantity" class="input  w-full max-w-xs" />
                             <div class="input-group-prepend">
                                 <button class="btn btn-outline-primary" type="button" onClick={incNum}>+</button>
                             </div>

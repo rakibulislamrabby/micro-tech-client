@@ -35,16 +35,6 @@ const AddReview = () => {
 
             })
     }
-
-    // const addReview = (event) => {
-    //     const review = {
-    //         name: user.displayName,
-    //         description: event.target.description.value,
-    //         rating: event.target.rating.value,
-    //     }
-    //     event.preventDefault();
-    //     console.log(review);
-    // }
     return (
         <div>
             <h2 className="text-2xl text-center text-primary font-bold">Hi {user?.displayName}</h2>
