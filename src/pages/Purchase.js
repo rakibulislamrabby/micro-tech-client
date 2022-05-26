@@ -15,9 +15,10 @@ const Purchase = () => {
             .then(res => res.json())
             .then(data => setProduct(data));
     }, [productId]);
-    // console.log(typeof (minimumQuantity));
+    // const mNumber = parseInt(minimumQuantity);
     const [quantity, setquantity] = useState(0);
     // setquantity(minimumQuantity);
+    // const mNumber = setquantity(minimumQuantity)
     let incNum = () => {
 
         if (quantity < availableQuantity) {
@@ -95,6 +96,19 @@ const Purchase = () => {
                         <input type="text" name='address' placeholder="Your address" className="input input-bordered input-secondary w-full " />
                         <input type="number" name='phone' placeholder="Phone Number" className="input input-bordered input-secondary w-full " />
 
+                        {/* {
+                            parseInt(avail_qty) < parseInt(watch().quantity) || parseInt(min_order) > parseInt(watch().quantity) ?
+                                <input type="submit" value='Order' className='btn btn-primary' disabled /> :
+
+                                <input type="submit" value='Order' className='btn btn-primary' />
+                        }
+                        {
+                            parseInt(avail_qty) < parseInt(watch().quantity) ?
+                                <span className='text-orange-700'>You can not order much than stock</span> :
+                                parseInt(min_order) > parseInt(watch().quantity) ?
+                                    <span className='text-orange-700'>You can not order less than mini order</span> :
+                                    ''
+                        } */}
                         <label class="label">
                             <span class="label-text">Quantity</span>
                         </label>

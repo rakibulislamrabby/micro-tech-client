@@ -21,7 +21,7 @@ const ShowReviewRow = ({ review }) => {
                     <div>
                         <h4 className='text-xl'>{review.name}</h4>
                         <p>{review.description}</p>
-                        <div className='flex'>
+                        <div className='flex pt-2'>
                             {[...Array(Number(review.rating))].map((element) => (
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
