@@ -16,7 +16,7 @@ const AddReview = () => {
             rating: data.rating,
         }
         console.log(review);
-        fetch("http://localhost:5000/reviews", {
+        fetch("https://gentle-ocean-30847.herokuapp.com/reviews", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

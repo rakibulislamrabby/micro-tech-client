@@ -18,7 +18,7 @@ const MyProfile = () => {
             linkedin: data.linkedin,
         };
         console.log(profile);
-        fetch(`http://localhost:5000/user/profile/${email}`, {
+        fetch(`https://gentle-ocean-30847.herokuapp.com/user/profile/${email}`, {
             method: "PUT",
             headers: {
                 headers: {
