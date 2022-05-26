@@ -3,11 +3,13 @@ import ShowReviewRow from './ShowReviewRow';
 
 const ShowReview = () => {
     const [reviews, setReviews] = useState([]);
+    const [rating, setRating] = useState()
     useEffect(() => {
         fetch("http://localhost:5000/review")
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])
+    // for ()
     return (
         <div className='py-16 lg:px-16'>
             <h2 className='text-3xl font-bold text-secondary text-center'>Customer Review</h2>

@@ -1,6 +1,6 @@
-# Project Of Manufacture Website
+# Project Of Computer Parts Manufacture Website.
 
-Micro-Tech Live Website [Micro-Tech](https://micro-tech-b6d08.web.app/).
+Micro-Tech: Live Website Link [Micro-Tech](https://micro-tech-b6d08.web.app/).
 
 ## What is the Key Feature of this site:
 
@@ -12,4 +12,3 @@ Micro-Tech Live Website [Micro-Tech](https://micro-tech-b6d08.web.app/).
 * And last user can see there profile. They can edit there information in this section.
 * we provide an admin system. only admin can give admin permition to another user. An admin can see all orders and they can cancel non-paid orders.
 * An admin can add a new product and delete existing products in the database.
-*

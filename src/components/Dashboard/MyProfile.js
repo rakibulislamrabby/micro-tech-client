@@ -1,18 +1,45 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 import auth from '../../firebase_init';
 
 const MyProfile = () => {
     const [user, loading] = useAuthState(auth);
+    const { register, formState: { errors }, handleSubmit, reset } = useForm();
     // const [userInfo, setUserInfo] = useLoadingUserInfo(user?.email);
-    const handleSubmit = () => {
+    const onSubmit = (data) => {
+        const email = user.email;
+        const profile = {
+            email: user.email,
+            address: data.address,
+            education: data.education,
+            phone: data.phone,
+            linkedin: data.linkedin,
+        };
+        console.log(profile);
+        fetch(`http://localhost:5000/user/profile/${email}`, {
+            method: "PUT",
+            headers: {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem("accessToken")}`
+                }
+            },
+            body: JSON.stringify(profile),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.modifiedCount > 0) {
 
+                    toast.success(` is Successfully Updated`)
+                }
+            });
     }
     return (
         <div className="container">
             <h1 className="text-center text-3xl">
                 Hello{" "}
-                <span className="text-[#f97316] font-extrabold">
+                <span className="text-[#fd715c] font-extrabold">
                     {user?.displayName}
                 </span>
             </h1>
@@ -69,8 +96,96 @@ const MyProfile = () => {
             </div>
 
             {/* form */}
+            <form className='w-full max-w-xs mx-auto' onSubmit={handleSubmit(onSubmit)}>
+                <h2 className='text-[#fd715c] text-3xl font-bold'>Edit Profile</h2>
+                {/* address with validation */}
+                <div className="form-control w-full max-w-xs ">
+                    <label className="label">
+                        <span className="label-text">Address</span>
+                    </label>
+                    <input
+                        {...register("address", {
+                            required: {
+                                value: true,
+                                message: "Address is Required"
+                            },
+
+                        })}
+
+                        type="name" placeholder="Your address"
+                        className="input input-bordered input-secondary w-full max-w-xs" />
+                    <label className="label">
+                        {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
+                        {/* {errors.name?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>} */}
+                    </label>
+                </div>
+
+
+                {/* Description */}
+                <div className="form-control w-full max-w-xs">
+                    <label className="label">
+                        <span className="label-text">Education</span>
+                    </label>
+                    <input
+                        {...register("education", {
+                            required: {
+                                value: true,
+                                message: "education is Required"
+                            },
+
+                        })}
+                        type="text" placeholder="Subject-University"
+                        className="input input-bordered input-secondary w-full max-w-xs" />
+                    <label className="label">
+                        {errors.description?.type === 'required' && <span className="label-text-alt text-red-500">{errors.description.message}</span>}
+                    </label>
+                </div>
+                {/* phone  */}
+                <div className="form-control w-full max-w-xs ">
+                    <label className="label">
+                        <span className="label-text">Phone Number</span>
+                    </label>
+                    <input
+                        {...register("phone", {
+                            required: {
+                                value: true,
+                                message: "phone is Required"
+                            },
+
+                        })}
+                        type="number" placeholder="Phone"
+                        className="input input-bordered input-secondary w-full max-w-xs" />
+                    <label className="label">
+                        {errors.phone?.type === 'required' && <span className="label-text-alt text-red-500">{errors.phone.message}</span>}
+                        {/* {errors.name?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>} */}
+                    </label>
+                </div>
+                {/* linked in  */}
+                <div className="form-control w-full max-w-xs ">
+                    <label className="label">
+                        <span className="label-text">linkedin Profile link</span>
+                    </label>
+                    <input
+                        {...register("linkedin", {
+                            required: {
+                                value: true,
+                                message: "linkedin is Required"
+                            },
+
+                        })}
+                        type="link" placeholder="linkedin-Profile Link"
+                        className="input input-bordered input-secondary w-full max-w-xs" />
+                    <label className="label">
+                        {errors.linkedin?.type === 'required' && <span className="label-text-alt text-red-500">{errors.linkedin.message}</span>}
+                        {/* {errors.name?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>} */}
+                    </label>
+                </div>
+
+                <input className='btn w-full  max-w-xs text-white' type="submit" value="ADD" />
+            </form>
+            {/* 
             <div className="pb-20 flex justify-center mt-10">
-                <div className="card bg-orange-500 shadow-xl w-full">
+                <div className="card bg-purple-500 shadow-xl w-full">
                     <div className="card-body">
                         <h2 className="text-center font-bold text-4xl">Update Details</h2>
                         <div className="">
@@ -129,7 +244,7 @@ const MyProfile = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 };

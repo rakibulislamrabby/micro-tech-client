@@ -8,20 +8,20 @@ const Purchase = () => {
     const [user] = useAuthState(auth);
     const { productId } = useParams()
     const [product, setProduct] = useState([]);
+    const { _id, name, price, img, description, availableQuantity, minimumQuantity } = product
     useEffect(() => {
         const url = `https://gentle-ocean-30847.herokuapp.com/product/${productId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setProduct(data));
-    }, []);
-    const { _id, name, img, description, price, availableQuantity, minimumQuantity } = product
-
-    const [quantity, setquantity] = useState(2);
-    // setquantity(Number(minimumQuantity))
+    }, [productId]);
+    // console.log(typeof (minimumQuantity));
+    const [quantity, setquantity] = useState(0);
+    // setquantity(minimumQuantity);
     let incNum = () => {
 
         if (quantity < availableQuantity) {
-            setquantity(Number(quantity) + 1);
+            setquantity(quantity + 1);
         }
         else {
             toast.error("You can't increase Over Available quantity")
@@ -108,7 +108,7 @@ const Purchase = () => {
                             </div>
                         </div>
                         {/* <input t    ype="button" className='btn btn-primary'>-</input> */}
-                        <input type="submit" value="Confirm Order" className="btn btn-secondary w-full " />
+                        <input type="submit" disabled={quantity < minimumQuantity} value="Confirm Order" className="btn btn-secondary w-full " />
                     </form>
                 </div>
 

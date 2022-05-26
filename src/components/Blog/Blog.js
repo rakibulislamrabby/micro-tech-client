@@ -56,9 +56,26 @@ const Blog = () => {
 
                     In the following sections, we’ll take a look at some implementations using the handling of accounts in a streaming service.</p>
             </div>
-            {/* ques 3 */}
+            {/* ques 4 */}
             <div>
-                <h1 className='text-xl font-bold '>4. What is a unit test? Why should write unit tests?</h1>
+                <h1 className='text-xl font-bold '>3. Why you do not set the state directly in React.For example, if you have const[products, setProducts]= useState([]).Why you do not set products =[...]instead, you use the setProducts</h1>
+                <p>One should never update the state directly because of the following reasons:</p>
+                <p>If we update it directly, calling the setState() afterward may just replace the update you made.</p>
+                <p>When we directly update the state, it does not change this.state immediately. Instead, it creates a pending state transition, and accessing it after calling this method will only return the present value.</p>
+                <p>we will lose control of the state across all components.</p>
+
+                <h1 className='text-xl font-bold '> Why you do not set products = [...] instead, you use the setProducts</h1>
+                <p>Set products mean a new product set in this array. When we are set a new array then we use set products in a state.</p>
+                <p>And the spread operator can be used to take an existing array and add another element to it while still preserving the original array. Whe we are updating arrays, combining arrays, or converting node lists into arrays, it is an easy way to get the job done.</p>
+
+
+            </div>
+
+
+
+            {/* ques 5 */}
+            <div>
+                <h1 className='text-xl font-bold '>5. What is a unit test? Why should write unit tests?</h1>
                 What is a unit test? Why should write unit tests?
                 <p>UNIT TESTING is a type of software testing where individual units or components of a software are tested. The purpose is to validate that each unit of the software code performs as expected. Unit Testing is done during the development (coding phase) of an application by the developers. Unit Tests isolate a section of code and verify its correctness. A unit may be an individual function, method, procedure, module, or object.</p>
                 <p>Unit Testing is important because software developers sometimes try saving time doing minimal unit testing and this is myth because inappropriate unit testing leads to high cost Defect fixing during System Testing, Integration Testing and even Beta Testing after application is built. If proper unit testing is done in early development, then it saves time and money in the end.</p>
