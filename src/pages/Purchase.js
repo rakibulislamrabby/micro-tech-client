@@ -20,7 +20,7 @@ const Purchase = () => {
     }, [productId, minimumQuantity]);
 
     const [quantity, setquantity] = useState(0);
-
+    console.log(productId)
     let incNum = () => {
         if (quantity < availableQuantity) {
 
